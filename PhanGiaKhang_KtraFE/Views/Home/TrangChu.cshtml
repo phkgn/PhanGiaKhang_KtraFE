@@ -1,0 +1,347 @@
+﻿@{
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .freeship-banner {
+            background-color: #e0f7fa; 
+            padding: 5px;
+            text-align: center;
+            border-radius: 1px;
+        }
+
+            .freeship-banner h2 {
+                font-size: 15px;
+                color:darkolivegreen;
+                margin-bottom: 10px;
+            }
+        .freeship-extra {
+            font-weight: bold;
+            color:deepskyblue; 
+        }
+        .logo img {
+            height: 50px;
+        }
+
+        .search-bar {
+            display: flex;
+            flex-grow: 1;
+            max-width: 600px;
+            margin: 0 20px;
+        }
+
+            .search-bar input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px 0 0 5px;
+            }
+
+            .search-bar button {
+                padding: 10px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 0 5px 5px 0;
+                cursor: pointer;
+            }
+
+        .cart {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+            .cart i {
+                font-size: 24px;
+                margin-right: 5px;
+            }
+
+        .cart-count {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            gap: 20px;
+        }
+
+        .left {
+            flex: 3;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .right {
+            flex: 1.5;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .product-image {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .main-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+        }
+
+            .thumbnails img {
+                width: 100px;
+                cursor: pointer;
+                border: 2px solid transparent;
+                border-radius: 10px;
+            }
+
+                .thumbnails img:hover {
+                    border-color: blue;
+                }
+
+        .price {
+            font-size: 26px;
+            color: red;
+            margin: 20px 0;
+        }
+
+        .label {
+            color: gray;
+        }
+
+        .quantity-section {
+            margin-bottom: 20px;
+        }
+
+            .quantity-section input {
+                text-align: center;
+                width: 50px;
+                padding: 5px;
+                margin: 0 10px;
+            }
+
+            .quantity-section button {
+                padding: 5px;
+                cursor: pointer;
+            }
+
+        .subtotal {
+            font-size: 22px;
+            color: red;
+        }
+
+        .buy-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+            .buy-buttons button {
+                padding: 15px;
+                font-size: 16px;
+                width: 100%;
+                border: none;
+                color: white;
+                cursor: pointer;
+            }
+
+        .buy-now {
+            background-color: red;
+        }
+
+        .add-to-cart {
+            background-color: blue;
+        }
+
+        .shipping-info, .additional-services {
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+            .shipping-info p, .additional-services p {
+                margin: 5px 0;
+            }
+
+            .shipping-info i, .additional-services i {
+                margin-right: 5px;
+            }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="freeship-banner">
+            <h2>Freeship đơn từ 45k Giảm nhiều hơn cùng <span class="freeship-extra">FREESHIP </span> XTRA</h2>
+        </div>
+        <div class="header-container">
+            <div class="logo">
+                <img src="~/Content/img/logo.png" alt="Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="Home">
+                <p>
+                    <i class="fas fa-store-alt"></i>
+                    <a href="~/Views/Home/Home.cshtml" />Trang Chủ</a>
+                </p>
+            </div>
+            <div class="login">
+                <p>
+                    <i class="fas fa-user"></i>
+                    <a href="~/Views/Home/Login.cshtml" />Tài Khoản</a>
+                </p>
+            </div>
+            <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="left">
+            <h1>Lon Sữa Glucerna 800g/Lon - Tặng 2 gói dùng thử</h1>
+            <div class="product-image">
+                <div class="main-image">
+                    <img id="mainImage" src="~/Content/img/a.png" alt="Sản phẩm">
+                </div>
+                <div class="thumbnails">
+                    <img src="~/Content/img/b.png" alt="Thumbnail 1" onclick="changeImage(this)">
+                    <img src="~/Content/img/c.png" alt="Thumbnail 2" onclick="changeImage(this)">
+                    <img src="~/Content/img/d.png" alt="Thumbnail 3" onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <p class="label">Hương vị: Vani</p>
+            <p class="price" id="price">1.034.550đ</p>
+        </div>
+        <div class="right">
+            <div class="quantity-section">
+                <label for="quantity">Số lượng:</label>
+                <button onclick="decreaseQuantity()">-</button>
+                <input type="number" id="quantity" value="1" min="1">
+                <button onclick="increaseQuantity()">+</button>
+            </div>
+
+            <p class="subtotal" id="subtotal">Tạm tính: 1.034.550đ</p>
+
+            <div class="buy-buttons">
+                <button class="buy-now">Mua ngay</button>
+                <button class="add-to-cart">Thêm vào giỏ</button>
+            </div>
+
+            <div class="shipping-info">
+                <h3>Thông tin vận chuyển</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Giao đến Q.1, P. Bến Nghé, Hồ Chí Minh</p>
+                <p><i class="fas fa-truck"></i> Giao hàng miễn phí trong 2h</p>
+                <p><i class="fas fa-shipping-fast"></i> Miễn phí 25k cho đơn trên 45k</p>
+            </div>
+
+            <div class="additional-services">
+                <h3>Dịch vụ bổ sung</h3>
+                <p><i class="fas fa-shield-alt"></i> Trả góp với TikiCard</p>
+                <p><i class="fas fa-wallet"></i> Mua trước trả sau</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Phan Gia Khang - Chi Tiết Sản Phẩm
+    </footer>
+
+    <script>
+        const price = 1034550;
+        function changeImage(element) {
+            const mainImage = document.getElementById("mainImage");
+            mainImage.src = element.src;
+        }
+
+        function updateSubtotal() {
+            const quantity = document.getElementById("quantity").value;
+            const subtotal = price * quantity;
+            document.getElementById("subtotal").innerText = `Tạm tính: ${subtotal.toLocaleString('vi-VN')}đ`;
+        }
+
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById("quantity");
+            if (quantityInput.value > 1) {
+                quantityInput.value--;
+                updateSubtotal();
+            }
+        }
+
+        function increaseQuantity() {
+            const quantityInput = document.getElementById("quantity");
+            quantityInput.value++;
+            updateSubtotal();
+        }
+
+        document.getElementById("quantity").addEventListener("input", updateSubtotal);
+    </script>
+
+</body>
+</html>
+
